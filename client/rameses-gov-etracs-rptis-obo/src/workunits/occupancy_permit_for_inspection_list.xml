@@ -1,0 +1,17 @@
+<workunit extends="com/rameses/seti2/templates/CrudNodeList.xml" 
+    schemaName="vw_occupancy_rpu" 
+    allowCreate="false"
+    allowDelete="false"
+    cols="bldgpermitno,bldgpermitdtissued,occpermitno,inspectiondate,title,applicant.name,actualprojectcost"
+    hiddenCols="state,applicant.profileid,applicant.address.text,actualprojectcost,faasid,bldgappid"
+    role="OBO"
+>
+    <invokers>
+        <invoker folderid="/menucategory/rpt-obo/obo" caption="Building FAAS Processing"
+            action="init" 
+            role="OBO" 
+            notificationid="occupancy_rpu"
+            index="10"
+        />
+    </invokers>
+</workunit>

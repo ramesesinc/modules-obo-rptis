@@ -1,0 +1,15 @@
+<workunit>
+    <invokers>
+        <invoker type="vw_occupancy_rpu:form:formActions" 
+            action="init"
+            caption="Create Building FAAS"
+            visibleWhen="#{entity.state == 0}"
+            depends="selectedItem"
+            target="popup"
+        />
+    </invokers>
+    <code class="rptis.obo.models.BuildingFaasCreateModel" />
+    <pages>
+        <page template="rptis.obo.views.BuildingFaasCreatePage" />
+    </pages>
+</workunit>

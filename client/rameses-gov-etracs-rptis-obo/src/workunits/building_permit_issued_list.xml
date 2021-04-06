@@ -1,0 +1,15 @@
+<workunit extends="com/rameses/seti2/templates/CrudList.xml"
+    schemaName="vw_building_permit" 
+    windowTitle="Building Permits Issued"
+    allowCreate="false" 
+    allowDelete="false" 
+    customFilter="NOT(controlid IS NULL)"
+    cols="controlno,title,projectcost,location.text"
+>
+    <invokers>
+        <invoker folderid="/menucategory/rpt-obo/obo" 
+            action="init" caption="Building Permits Issued"  
+            role="OBO"
+        />
+    </invokers>
+</workunit>

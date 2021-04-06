@@ -1,0 +1,11 @@
+"entity.(taxpayer|landfaas|suffix)" [true] {
+    enabled:true;
+}
+
+"entity.taxpayer" [entity.applicant?.profileid != null] {
+    enabled:false;
+}
+
+"entity.(landfaas|suffix)" [entity.state != 0] {
+    enabled:false;
+}

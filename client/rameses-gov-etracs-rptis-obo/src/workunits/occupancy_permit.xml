@@ -1,0 +1,31 @@
+<workunit extends="com/rameses/seti2/templates/CrudForm.xml"
+    schemaName="vw_occupancy_rpu" 
+    windowTitle="Occupancy Permit"
+    allowCreate="false" 
+    allowEdit="false" 
+    allowDelete="false"
+>
+    <invokers>
+        <invoker type="vw_occupancy_rpu:open"  
+            action="open" caption="Occupancy Permit"  
+            role="OBO"
+        />
+        
+        <invoker type="formActions" 
+            action="viewBldgFaas" 
+            caption="View Building FAAS"
+            visibleWhen="#{entity.faasid != null}"
+        />
+        <invoker type="formActions" 
+            action="generateDocs" 
+            caption="Generate Docs"
+            visibleWhen="#{entity.faasid != null &amp;&amp; entity.truecopycertid == null }"
+        />
+        
+    </invokers>
+    <code class="rptis.obo.models.OccupancyPermitModel" />
+    <pages>
+        <page template="rptis.obo.views.OccupancyPermitPage" />
+    </pages>
+                
+</workunit>

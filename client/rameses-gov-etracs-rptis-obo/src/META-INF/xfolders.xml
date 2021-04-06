@@ -1,0 +1,8 @@
+<folders>
+   <folder id="menucategory">
+        <folder id="rpt-obo" caption="Assessor" icon="home/icons/assessor.png">
+            <folder id="obo" caption="OBO (Building Permit)" icon="home/icons/folder.png" index="500"/>
+        </folder>
+    </folder>
+</folders>
+
