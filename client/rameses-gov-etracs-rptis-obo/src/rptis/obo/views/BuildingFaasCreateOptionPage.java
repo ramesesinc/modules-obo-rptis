@@ -35,11 +35,14 @@ public class BuildingFaasCreateOptionPage extends javax.swing.JPanel {
         xRadio1 = new com.rameses.rcp.control.XRadio();
         xRadio3 = new com.rameses.rcp.control.XRadio();
         xRadio2 = new com.rameses.rcp.control.XRadio();
+        xLookupField1 = new com.rameses.rcp.control.XLookupField();
 
         xLabel1.setExpression("Please select an option for the FAAS");
         xLabel1.setShowCaption(false);
         xFormPanel1.add(xLabel1);
 
+        xRadio1.setName("option"); // NOI18N
+        xRadio1.setOptionValue("bldg");
         xRadio1.setCellPadding(new java.awt.Insets(10, 20, 0, 0));
         xRadio1.setShowCaption(false);
         xRadio1.setText("Create New Building FAAS");
@@ -50,6 +53,8 @@ public class BuildingFaasCreateOptionPage extends javax.swing.JPanel {
         });
         xFormPanel1.add(xRadio1);
 
+        xRadio3.setName("option"); // NOI18N
+        xRadio3.setOptionValue("mach");
         xRadio3.setCellPadding(new java.awt.Insets(10, 20, 0, 0));
         xRadio3.setShowCaption(false);
         xRadio3.setText("Create New Machinery FAAS");
@@ -60,6 +65,8 @@ public class BuildingFaasCreateOptionPage extends javax.swing.JPanel {
         });
         xFormPanel1.add(xRadio3);
 
+        xRadio2.setName("option"); // NOI18N
+        xRadio2.setOptionValue("link");
         xRadio2.setCellPadding(new java.awt.Insets(10, 20, 0, 0));
         xRadio2.setShowCaption(false);
         xRadio2.setText("Link Existing FAAS");
@@ -70,20 +77,30 @@ public class BuildingFaasCreateOptionPage extends javax.swing.JPanel {
         });
         xFormPanel1.add(xRadio2);
 
+        xLookupField1.setCaption("TD No.");
+        xLookupField1.setDepends(new String[] {"option"});
+        xLookupField1.setDisableWhen("#{option != 'link'}");
+        xLookupField1.setExpression("#{item.tdno ? item.tdno : item.pin}");
+        xLookupField1.setHandler("faas:lookup");
+        xLookupField1.setName("linkedfaas"); // NOI18N
+        xLookupField1.setCellPadding(new java.awt.Insets(5, 50, 0, 0));
+        xLookupField1.setPreferredSize(new java.awt.Dimension(200, 20));
+        xFormPanel1.add(xLookupField1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(xFormPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addContainerGap()
+                .addComponent(xFormPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(xFormPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(xFormPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -104,6 +121,7 @@ public class BuildingFaasCreateOptionPage extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.rameses.rcp.control.XFormPanel xFormPanel1;
     private com.rameses.rcp.control.XLabel xLabel1;
+    private com.rameses.rcp.control.XLookupField xLookupField1;
     private com.rameses.rcp.control.XRadio xRadio1;
     private com.rameses.rcp.control.XRadio xRadio2;
     private com.rameses.rcp.control.XRadio xRadio3;

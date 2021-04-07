@@ -73,17 +73,17 @@ class RptOboPluginService {
 		faas.rpu.online = true;
 		faasSvc.updateFaas(faas);
 
-		if ('bldg'.equalsIgnoreCase(params.rputype)) {
-			occupancySvc.saveFaas([objid: occupancy.objid, faasid: faas.objid]);
+		if (params.rputype.toLowerCase().matches('bldg|mach')) {
+			updateOccupancyFaas([objid: occupancy.objid, faasid: faas.objid]);
 		}
 		return faas;
 	}
 
 	@ProxyMethod
-	public def createMachineryFaas(params) {
-		params.rputype = 'mach';
-		return createFaas(params);
+	public void updateOccupancyFaas(occupancy) {
+		occupancySvc.saveFaas(occupancy);
 	}
+
 
 	@ProxyMethod
 	public def updateOccupancy(occupancy) {

@@ -1,6 +1,6 @@
 <workunit>
     <invokers>
-        <invoker type="vw_occupancy_rpu:form:formActions" 
+        <invoker type="obo_building_faas:create" 
             action="init"
             caption="Create Building FAAS"
             visibleWhen="#{entity.state == 0}"
