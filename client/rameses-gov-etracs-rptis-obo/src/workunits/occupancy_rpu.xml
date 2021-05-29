@@ -3,8 +3,7 @@
     windowTitle="Occupancy Permit"
     allowCreate="false" 
     allowEdit="false" 
-    allowDelete="false"
->
+    allowDelete="false">
     <invokers>
         <invoker type="vw_occupancy_rpu:open"  
             action="open" caption="Occupancy Permit"  
@@ -12,8 +11,8 @@
         />
         
         <invoker type="formActions" 
-            action="viewBldgFaas" 
-            caption="View Building FAAS"
+            action="viewFaas" 
+            caption="View FAAS"
             visibleWhen="#{entity.faasid != null}"
         />
         <invoker type="formActions" 
@@ -22,10 +21,22 @@
             visibleWhen="#{entity.faasid != null &amp;&amp; entity.truecopycertid == null }"
         />
         
+        <invoker type="formActions" 
+            action="viewTrueCopy" 
+            caption="View True Copy"
+            visibleWhen="#{entity.truecopycertid != null }"
+        />
+        
+        <invoker type="formActions" 
+            action="viewNoa"
+            caption="View Notice of Assessment"
+            visibleWhen="#{entity.noaid != null }" />
+        
+        
     </invokers>
-    <code class="rptis.obo.models.OccupancyPermitModel" />
+    <code class="rptis.obo.models.OccupancyRpuModel" />
     <pages>
-        <page template="rptis.obo.views.OccupancyPermitPage" />
+        <page template="rptis.obo.views.OccupancyRpuPage" />
     </pages>
                 
 </workunit>

@@ -37,6 +37,8 @@ class BuildingFaasCreateOptionModel {
         if (option != 'link') {
             return Inv.lookupOpener("obo_building_faas:create", params);
         } else {
+            if( !linkedfaas.rputype.matches('bldg|mach') )
+                throw new Exception("Please link to a building or machinery rpu type faas");
             entity.faas = linkedfaas;
             entity.state = 1;
             entity.faasid = linkedfaas.objid;
