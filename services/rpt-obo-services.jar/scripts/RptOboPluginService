@@ -22,6 +22,9 @@ class RptOboPluginService {
 	@DataContext("bldgrpu")
 	def em_bldgrpu;
 
+	@ActiveDB('rptis_obo_plugin')
+	def em_rptis_obo;
+
 
 	@ProxyMethod
 	public def getRpus(occupancy) {
@@ -87,7 +90,7 @@ class RptOboPluginService {
 	@ProxyMethod
 	public def getLinkRpus( def o ) {
 		if(!o.faasid) throw new Exception("faasid is required in RptOboPluginService.getLinkRpus");
-		//return the objid,tdno,pin
+		return em_rptis_obo.getLinkRpus(o)
 	}
 
 	@ProxyMethod
