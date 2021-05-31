@@ -1,6 +1,6 @@
 <workunit extends="com/rameses/seti2/templates/CrudList.xml"
     schemaName="vw_occupancy_rpu" 
-    windowTitle="Occupancy Permits Issued"
+    windowTitle="Occupancy Certificates Issued"
     allowCreate="false" 
     allowDelete="false"
     cols="bldgpermitno,bldgpermitdtissued,occpermitno,inspectionschedule,title,applicant.name,projectcost"
@@ -8,7 +8,7 @@
 >
     <invokers>
         <invoker folderid="/menucategory/rpt-obo/obo" 
-            action="init" caption="Occupancy Permits Issued"  
+            action="init" caption="Occupancy Certificates Issued"  
             role="OBO"
         />
 

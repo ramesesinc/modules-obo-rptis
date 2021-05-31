@@ -1,23 +1,24 @@
 <workunit extends="com/rameses/seti2/templates/CrudForm.xml"
     schemaName="vw_occupancy_rpu" 
-    windowTitle="Occupancy Permit"
+    windowTitle="Occupancy Certificate"
     allowCreate="false" 
     allowEdit="false" 
     allowDelete="false">
     <invokers>
         <invoker type="vw_occupancy_rpu:open"  
-            action="open" caption="Occupancy Permit"  
-            role="OBO"
+            action="open" caption="Occupancy Certificate"  
         />
         
         <invoker type="formActions" 
             action="viewFaas" 
             caption="View FAAS"
+            role="OBO"
             visibleWhen="#{entity.faasid != null}"
         />
         <invoker type="formActions" 
             action="generateDocs" 
             caption="Generate Docs"
+            role="OBO"
             visibleWhen="#{entity.faasid != null &amp;&amp; entity.truecopycertid == null }"
         />
         

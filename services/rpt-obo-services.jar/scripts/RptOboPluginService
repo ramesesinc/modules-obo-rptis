@@ -84,18 +84,27 @@ class RptOboPluginService {
 		occupancySvc.saveFaas(occupancy);
 	}
 
+	@ProxyMethod
+	public def getLinkRpus( def o ) {
+		if(!o.faasid) throw new Exception("faasid is required in RptOboPluginService.getLinkRpus");
+		//return the objid,tdno,pin
+	}
 
 	@ProxyMethod
 	public def updateOccupancy(occupancy) {
 		if (!occupancy.faasid) throw new Exception('faasid must be specified')
 		if (!occupancy.permitno) throw new Exception('permitno must be specified')
 		if (!occupancy.permitdtissued) throw new Exception('permitdtissued must be specified')
+		if (!occupancy.bldgpermitno) throw new Exception('bldgpermitno must be specified')
+		if (!occupancy.bldgpermitdtissued) throw new Exception('bldgpermitdtissued must be specified')
 
 		def rpuid = em_faas.select("rpuid").find([objid: occupancy.faasid]).val();
 		if (rpuid) {
 			em_bldgrpu.find([objid: rpuid]).update([
+				permitno: occupancy.bldgpermitno,
+				permitdate: occupancy.bldgpermitdtissued,
 				occpermitno: occupancy.permitno,
-				dtcertoccupancy: occupancy.permitdtissued,
+				dtcertoccupancy: occupancy.permitdtissued
 			]);
 		}
 

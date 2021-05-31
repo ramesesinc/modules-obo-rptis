@@ -45,7 +45,7 @@ public class BuildingFaasCreatePage extends javax.swing.JPanel {
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder1 = new com.rameses.rcp.control.border.XTitledBorder();
         xTitledBorder1.setPadding(new java.awt.Insets(25, 10, 10, 10));
-        xTitledBorder1.setTitle("Occupancy Permit Information");
+        xTitledBorder1.setTitle("Occupancy Certificate Information");
         xFormPanel1.setBorder(xTitledBorder1);
         xFormPanel1.setCaptionWidth(120);
 
