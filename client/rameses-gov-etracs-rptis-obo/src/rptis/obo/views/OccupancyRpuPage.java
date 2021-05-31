@@ -26,6 +26,8 @@ public class OccupancyRpuPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        xTabbedPane1 = new com.rameses.rcp.control.XTabbedPane();
+        xPanel1 = new com.rameses.rcp.control.XPanel();
         xFormPanel1 = new com.rameses.rcp.control.XFormPanel();
         xLabel14 = new com.rameses.rcp.control.XLabel();
         xLabel1 = new com.rameses.rcp.control.XLabel();
@@ -44,6 +46,15 @@ public class OccupancyRpuPage extends javax.swing.JPanel {
         xLabel13 = new com.rameses.rcp.control.XLabel();
         xLabel8 = new com.rameses.rcp.control.XLabel();
         xLabel11 = new com.rameses.rcp.control.XLabel();
+        xPanel2 = new com.rameses.rcp.control.XPanel();
+        xDataTable1 = new com.rameses.rcp.control.XDataTable();
+        jPanel1 = new javax.swing.JPanel();
+        btnRefresh = new com.rameses.rcp.control.XButton();
+        xButton1 = new com.rameses.rcp.control.XButton();
+
+        setLayout(new java.awt.BorderLayout());
+
+        xPanel1.setName(""); // NOI18N
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder1 = new com.rameses.rcp.control.border.XTitledBorder();
         xTitledBorder1.setPadding(new java.awt.Insets(25, 10, 10, 10));
@@ -147,28 +158,95 @@ public class OccupancyRpuPage extends javax.swing.JPanel {
         xLabel11.setPreferredSize(new java.awt.Dimension(0, 20));
         xFormPanel2.add(xLabel11);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout xPanel1Layout = new javax.swing.GroupLayout(xPanel1);
+        xPanel1.setLayout(xPanel1Layout);
+        xPanel1Layout.setHorizontalGroup(
+            xPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(xPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(xFormPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
-                    .addComponent(xFormPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGroup(xPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(xFormPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(xFormPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        xPanel1Layout.setVerticalGroup(
+            xPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(xPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(xFormPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(xFormPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(xFormPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        xTabbedPane1.addTab("General Info", xPanel1);
+
+        xPanel2.setLayout(new java.awt.BorderLayout());
+
+        xDataTable1.setHandler("listHandler");
+        xDataTable1.setColumns(new com.rameses.rcp.common.Column[]{
+            new com.rameses.rcp.common.Column(new Object[]{
+                new Object[]{"name", "tdno"}
+                , new Object[]{"caption", "TD No"}
+                , new Object[]{"width", 100}
+                , new Object[]{"minWidth", 0}
+                , new Object[]{"maxWidth", 0}
+                , new Object[]{"required", false}
+                , new Object[]{"resizable", true}
+                , new Object[]{"nullWhenEmpty", true}
+                , new Object[]{"editable", false}
+                , new Object[]{"visible", true}
+                , new Object[]{"visibleWhen", null}
+                , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
+            }),
+            new com.rameses.rcp.common.Column(new Object[]{
+                new Object[]{"name", "pin"}
+                , new Object[]{"caption", "PIN"}
+                , new Object[]{"width", 100}
+                , new Object[]{"minWidth", 0}
+                , new Object[]{"maxWidth", 0}
+                , new Object[]{"required", false}
+                , new Object[]{"resizable", true}
+                , new Object[]{"nullWhenEmpty", true}
+                , new Object[]{"editable", false}
+                , new Object[]{"visible", true}
+                , new Object[]{"visibleWhen", null}
+                , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
+            })
+        });
+        xPanel2.add(xDataTable1, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(0, 30));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        btnRefresh.setCaption("");
+        btnRefresh.setName("reloadList"); // NOI18N
+        btnRefresh.setAccelerator("ctrl R");
+        btnRefresh.setAutoRefresh(false);
+        btnRefresh.setFocusable(false);
+        btnRefresh.setIconResource("images/toolbars/refresh.png");
+        btnRefresh.setImmediate(true);
+        btnRefresh.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        jPanel1.add(btnRefresh);
+
+        xButton1.setName("generateMachineryRPT"); // NOI18N
+        xButton1.setVisibleWhen("#{ entity.truecopycertid!=null && entity.noaid == null }");
+        xButton1.setText("Generate Machinery RPT");
+        jPanel1.add(xButton1);
+
+        xPanel2.add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        xTabbedPane1.addTab("Linked RPUs", xPanel2);
+
+        add(xTabbedPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.rameses.rcp.control.XButton btnRefresh;
+    private javax.swing.JPanel jPanel1;
+    private com.rameses.rcp.control.XButton xButton1;
+    private com.rameses.rcp.control.XDataTable xDataTable1;
     private com.rameses.rcp.control.XFormPanel xFormPanel1;
     private com.rameses.rcp.control.XFormPanel xFormPanel2;
     private com.rameses.rcp.control.XLabel xLabel1;
@@ -187,5 +265,8 @@ public class OccupancyRpuPage extends javax.swing.JPanel {
     private com.rameses.rcp.control.XLabel xLabel6;
     private com.rameses.rcp.control.XLabel xLabel8;
     private com.rameses.rcp.control.XLabel xLabel9;
+    private com.rameses.rcp.control.XPanel xPanel1;
+    private com.rameses.rcp.control.XPanel xPanel2;
+    private com.rameses.rcp.control.XTabbedPane xTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,15 +25,19 @@ class OccupancyRpuModel extends CrudFormModel {
         }
     }
            
-    def viewFaas() {
+    def fetchOpenFaasEntry( def faasid ) {
         def q = [_schemaname:"faas_task"];
-        q.findBy = [refid: entity.faasid ];
+        q.findBy = [refid: faasid ];
         q.where = ["enddate IS NULL"];
         def tsk = qrySvc.findFirst( q );
         def wu = (tsk?.objid)  ? 'faas:open' : 'faas:open:closedwf';
-        def invoker = Inv.lookupOpener(wu, [entity: [objid: entity.faasid]]);
+        def invoker = Inv.lookupOpener(wu, [entity: [objid: faasid]]);
         invoker.target = "self";
-        return invoker;
+        return invoker;        
+    }
+
+    def viewFaas() {
+        return fetchOpenFaasEntry( entity.faasid  );
     }
     
     def openFaas(bldgfaas) {
@@ -42,12 +46,19 @@ class OccupancyRpuModel extends CrudFormModel {
         binding?.refresh();
     }
     
-    def generateDocs() {
-        if(!MsgBox.confirm("You are about to issue the RPT Documents. Proceed?")) return;
-        def u = occSvc.generateDocs( [objid: entity.objid] );
+    def generateTruecopy() {
+        if(!MsgBox.confirm("You are about to generate the RPT Documents. Proceed?")) return;
+        def u = occSvc.generateTruecopy( [objid: entity.objid] );
         entity.putAll( u );
         reloadEntity();
         MsgBox.alert("documents successfully generated");
+    }
+    
+    def issueNOA() {
+        if(!MsgBox.confirm("You are about to issue the Notice of Assessment. Make sure this transaction is final. Proceed?")) return;
+        def u = occSvc.issueNOA( [objid: entity.objid] );
+        entity.putAll( u );
+        reloadEntity();
     }
     
     def viewTrueCopy() {
@@ -64,5 +75,27 @@ class OccupancyRpuModel extends CrudFormModel {
         op.target ="popup";
         return op;
     }
+    
+    void reloadList() {
+        listHandler.reload();
+    }
+    
+    void generateMachineryRPT() {
+        if( !MsgBox.confirm("You are about to generate the related RPT machinery entries. Proceed?") ) return;
+        occSvc.generateMachineryEntries( [objid: entity.objid] );
+        listHandler.reload();
+    }
+    
+    def listHandler = [
+        fetchList: { o->
+            if(!entity.faasid) return [];
+            def m = [_schemaname: "occupancy_rpu_item"]
+            m.findBy = [parentid: entity.objid];
+            return queryService.getList(m);
+        },
+        openItem: { o,col->
+            return fetchOpenFaasEntry( o.faasid  ) 
+        }
+    ] as BasicListModel;
     
 }

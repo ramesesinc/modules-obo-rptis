@@ -16,18 +16,23 @@
             visibleWhen="#{entity.faasid != null}"
         />
         <invoker type="formActions" 
-            action="generateDocs" 
-            caption="Generate Docs"
+            action="generateTruecopy" 
+            caption="Generate True Copy"
             role="OBO"
             visibleWhen="#{entity.faasid != null &amp;&amp; entity.truecopycertid == null }"
         />
-        
         <invoker type="formActions" 
             action="viewTrueCopy" 
             caption="View True Copy"
             visibleWhen="#{entity.truecopycertid != null }"
         />
-        
+
+        <invoker type="formActions" 
+            action="issueNOA" 
+            caption="Issue NOA"
+            role="OBO"
+            visibleWhen="#{entity.truecopycertid != null &amp;&amp; entity.noaid == null }"
+        />        
         <invoker type="formActions" 
             action="viewNoa"
             caption="View Notice of Assessment"
