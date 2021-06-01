@@ -39,7 +39,7 @@ class RptOboPluginService {
 	@ProxyMethod
 	public def getTdno(faas) {
 		if (!faas.objid) throw new Exception('objid must be specified');
-		return em_faas.select('tdno').find([objid: faas.objid]).first().val();
+		return em_faas.select('tdno').find([objid: faas.objid]).first();
 	}
 
 	@ProxyMethod

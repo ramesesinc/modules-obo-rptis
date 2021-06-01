@@ -6,7 +6,8 @@
     allowDelete="false">
     <invokers>
         <invoker type="vw_occupancy_rpu:open"  
-            action="open" caption="Occupancy Certificate"  
+            action="open" caption="Occupancy Certificate" 
+            formId="#{entity.objid}" 
         />
         
         <invoker type="formActions" 

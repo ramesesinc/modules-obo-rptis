@@ -52,6 +52,7 @@ public class OccupancyRpuPage extends javax.swing.JPanel {
         btnRefresh = new com.rameses.rcp.control.XButton();
         xButton1 = new com.rameses.rcp.control.XButton();
 
+        setPreferredSize(new java.awt.Dimension(810, 598));
         setLayout(new java.awt.BorderLayout());
 
         xPanel1.setName(""); // NOI18N

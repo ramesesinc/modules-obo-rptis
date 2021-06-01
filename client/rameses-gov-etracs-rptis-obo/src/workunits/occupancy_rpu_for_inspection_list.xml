@@ -4,8 +4,7 @@
     allowDelete="false"
     cols="bldgpermitno,bldgpermitdtissued,occpermitno,inspectiondate,title,applicant.name,actualprojectcost"
     hiddenCols="state,applicant.profileid,applicant.address.text,actualprojectcost,faasid,bldgappid"
-    role="OBO"
->
+    role="OBO">
     <invokers>
         <invoker folderid="/menucategory/rpt-obo/obo" caption="Building FAAS Processing"
             action="init" 

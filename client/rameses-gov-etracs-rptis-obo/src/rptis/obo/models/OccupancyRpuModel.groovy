@@ -31,7 +31,7 @@ class OccupancyRpuModel extends CrudFormModel {
         q.where = ["enddate IS NULL"];
         def tsk = qrySvc.findFirst( q );
         def wu = (tsk?.objid)  ? 'faas:open' : 'faas:open:closedwf';
-        def invoker = Inv.lookupOpener(wu, [entity: [objid: faasid]]);
+        def invoker = Inv.lookupOpener(wu, [entity: [objid: faasid, taskid: tsk?.objid, taskstate: tsk?.state] ]);
         invoker.target = "self";
         return invoker;        
     }
