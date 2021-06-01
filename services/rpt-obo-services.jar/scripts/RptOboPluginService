@@ -37,6 +37,12 @@ class RptOboPluginService {
 	}
 
 	@ProxyMethod
+	public def getTdno(faas) {
+		if (!faas.objid) throw new Exception('objid must be specified');
+		return em_faas.select('tdno').find([objid: faas.objid]).first().val();
+	}
+
+	@ProxyMethod
 	public def createFaas(params) {
 		def occupancy = oboQuerySvc.findFirst([_schemaname: "vw_occupancy_rpu", findBy: [objid: params.objid]])
 		if (occupancy.faasid) throw new Exception("Occupany is invalid. Only pending state is allowed.");
