@@ -20,13 +20,18 @@ select
 	f.state,
 	f.titleno,
 	f.titledate,
+	f.fullpin as pin, 
+	f.owner_name,
+	f.owner_address,
 	b.objid as barangay_objid,
 	b.name as barangay_name,
 	rp.cadastrallotno as lotno,
 	rp.blockno,
 	rp.street,
-	pc.code as class_code, 
-	pc.name as class_name
+	pc.code as classcode, 
+	pc.name as classname,
+	r.totalav,
+	r.totalmv
 from faas f 
 inner join realproperty rp on f.realpropertyid = rp.objid 
 inner join rpu r on f.rpuid = r.objid 
