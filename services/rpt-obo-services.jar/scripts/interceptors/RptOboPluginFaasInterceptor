@@ -13,6 +13,6 @@ class RptOboPluginFaasInterceptor {
 		def occupancy = querySvc.findFirst([_schemaname: "vw_occupancy_rpu", findBy: [faasid: faas.objid]]);
 		if (!occupancy) return;
 
-		occupancySvc.approve([objid: occupancy.objid, tdno: faas.tdno]);
+		// occupancySvc.approve([objid: occupancy.objid, tdno: faas.tdno]);
 	}
 }
