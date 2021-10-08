@@ -1,0 +1,9 @@
+<workunit extends="com/rameses/jasper/templates/JasperFormReport.xml">
+    <invokers>
+        <invoker type="report:online:rptnoa"
+                 caption="View Notice of Assessment"
+                 action="preview"
+                 index="1"
+                 reportId="rptnoa" />
+    </invokers>
+</workunit>

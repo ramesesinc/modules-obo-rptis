@@ -42,7 +42,14 @@ class BuildingFaasCreateOptionModel {
             entity.faas = linkedfaas;
             entity.state = 1;
             entity.faasid = linkedfaas.objid;
-            svc.updateOccupancyFaas([objid: entity.objid, faasid: entity.faasid]);
+            def occupancy = [:]
+            occupancy.objid = entity.objid;
+            occupancy.faasid = entity.faasid;
+            occupancy.permitno = entity.bldgpermitno;
+            occupancy.permitdate = entity.bldgpermitdtissued;
+            occupancy.occpermitno = entity.permitno;
+            occupancy.dtcertoccupancy = entity.permitdtissued;
+            svc.updateOccupancyFaas(occupancy);
             caller.openFaas(linkedfaas);
             return "_close";
         }

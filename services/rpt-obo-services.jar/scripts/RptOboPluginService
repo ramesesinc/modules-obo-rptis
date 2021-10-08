@@ -97,6 +97,12 @@ class RptOboPluginService {
 	@ProxyMethod
 	public void updateOccupancyFaas(occupancy) {
 		occupancySvc.saveFaas(occupancy);
+		em_bldgrpu.find([objid: rpuid]).update([
+			permitno: occupancy.bldgpermitno,
+			permitdate: occupancy.bldgpermitdtissued,
+			occpermitno: occupancy.permitno,
+			dtcertoccupancy: occupancy.permitdtissued
+		]);
 	}
 
 	@ProxyMethod

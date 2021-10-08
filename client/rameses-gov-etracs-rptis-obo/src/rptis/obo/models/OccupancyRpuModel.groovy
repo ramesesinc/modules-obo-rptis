@@ -63,7 +63,7 @@ class OccupancyRpuModel extends CrudFormModel {
     
     def viewTrueCopy() {
         if(!entity.truecopycertid ) throw new Exception("True copy not yet generated");
-        def op =  Inv.lookupOpener( 'tdtruecopy:view', [entity: [objid: entity.truecopycertid ]] );
+        def op =  Inv.lookupOpener( 'report:online:tdtruecopy', [entity: [objid: entity.truecopycertid ]] );
         op.target ="popup";
         return op;
     }
@@ -71,7 +71,7 @@ class OccupancyRpuModel extends CrudFormModel {
     def viewNoa() {
         if(!entity.noaid ) throw new Exception("NOA not yet generated");
         def data = noticeSvc.getReportData([objid: entity.noaid]);
-        def op = Inv.lookupOpener( 'assessmentnotice:report', [entity: data]);
+        def op = Inv.lookupOpener( 'report:online:rptnoa', [entity: data]);
         op.target ="popup";
         return op;
     }

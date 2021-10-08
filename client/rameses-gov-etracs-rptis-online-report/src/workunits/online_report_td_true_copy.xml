@@ -1,0 +1,9 @@
+<workunit extends="com/rameses/jasper/templates/JasperFormReport.xml">
+    <invokers>
+        <invoker type="report:online:tdtruecopy"
+                 caption="View TD True Copy"
+                 action="preview"
+                 index="1"
+                 reportId="tdtruecopy" />
+    </invokers>
+</workunit>
