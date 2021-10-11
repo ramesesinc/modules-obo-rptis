@@ -19,7 +19,6 @@
         <invoker type="formActions" 
             action="generateTruecopy" 
             caption="Generate True Copy"
-            role="OBO"
             visibleWhen="#{entity.faasid != null &amp;&amp; entity.truecopycertid == null }"
         />
         <invoker type="formActions" 
@@ -31,7 +30,6 @@
         <invoker type="formActions" 
             action="issueNOA" 
             caption="Issue NOA"
-            role="OBO"
             visibleWhen="#{entity.truecopycertid != null &amp;&amp; entity.noaid == null }"
         />        
         <invoker type="formActions" 

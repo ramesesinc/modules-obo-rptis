@@ -230,7 +230,7 @@
                     <Property name="padding" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[25, 10, 10, 10]"/>
                     </Property>
-                    <Property name="title" type="java.lang.String" value="Building FAAS Information"/>
+                    <Property name="title" type="java.lang.String" value="FAAS Information"/>
                   </PropertyBean>
                 </Property>
                 <Property name="captionWidth" type="int" value="120"/>

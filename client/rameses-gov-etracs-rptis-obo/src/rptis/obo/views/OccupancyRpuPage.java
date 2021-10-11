@@ -142,7 +142,7 @@ public class OccupancyRpuPage extends javax.swing.JPanel {
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder2 = new com.rameses.rcp.control.border.XTitledBorder();
         xTitledBorder2.setPadding(new java.awt.Insets(25, 10, 10, 10));
-        xTitledBorder2.setTitle("Building FAAS Information");
+        xTitledBorder2.setTitle("FAAS Information");
         xFormPanel2.setBorder(xTitledBorder2);
         xFormPanel2.setCaptionWidth(120);
 
